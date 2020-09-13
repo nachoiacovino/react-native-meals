@@ -3,7 +3,7 @@ import useToggle from "./hooks/useToggle";
 import { StyleSheet, View } from "react-native";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
-import CategoriesScreen from "./screens/CategoriesScreen";
+import MealsNavigator from "./navigation/MealsNavigator";
 
 const fetchFonts = () => {
   Font.loadAsync({
@@ -19,11 +19,7 @@ const App = () => {
     return <AppLoading startAsync={fetchFonts} onFinish={toggleLoading} />;
   }
 
-  return (
-    <View>
-      <CategoriesScreen />
-    </View>
-  );
+  return <MealsNavigator />;
 };
 
 export default App;
