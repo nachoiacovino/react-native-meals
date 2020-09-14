@@ -1,23 +1,15 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
+import { StyleSheet } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
 import { CATEGORIES } from "../assets/dummy-data";
+import CategoryItem from "../components/CategoryItem";
 
-const CategoriesScreen = ({ navigation: { navigate } }) => {
+const CategoriesScreen = () => {
   return (
     <FlatList
       data={CATEGORIES}
       numColumns={2}
-      renderItem={({ item }) => (
-        <TouchableOpacity
-          style={styles.category}
-          onPress={() => navigate("CategoryMeals", { category: item })}
-        >
-          <View>
-            <Text>{item.title}</Text>
-          </View>
-        </TouchableOpacity>
-      )}
+      renderItem={({ item }) => <CategoryItem category={item} />}
     />
   );
 };
@@ -28,11 +20,4 @@ CategoriesScreen.navigationOptions = {
 
 export default CategoriesScreen;
 
-const styles = StyleSheet.create({
-  category: {
-    flex: 1,
-    margin: 10,
-    height: 150,
-    width: "100%",
-  },
-});
+const styles = StyleSheet.create({});
