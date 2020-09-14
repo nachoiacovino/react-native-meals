@@ -12,7 +12,7 @@ const CategoriesScreen = ({ navigation: { navigate } }) => {
       renderItem={({ item }) => (
         <TouchableOpacity
           style={styles.category}
-          onPress={() => navigate("CategoryMeals")}
+          onPress={() => navigate("CategoryMeals", { category: item })}
         >
           <View>
             <Text>{item.title}</Text>
